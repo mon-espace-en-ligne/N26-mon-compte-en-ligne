@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transférer de l'argent</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .section-apport {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .section-apport h2 {
+            color: #333;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"],
+        input[type="date"],
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        /* Bouton de transfert */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #009c9a;
+            border: none;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #007f7b;
+        }
+ /* Bouton retour */
+        .back-button {
+            margin-top: 5px;
+            padding: 12px 25px;
+            background: #009c9a;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background: #007f7d;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Empêcher la sélection de dates passées
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+
+            // Simuler un compte bloqué
+            const compteBloque = true; // Change à false si le compte n'est pas bloqué
+
+            // Ajouter un événement au formulaire
+            document.querySelector('form').addEventListener('submit', function(event) {
+                if (compteBloque) {
+                    alert("⚠️ Vous ne pouvez pas effectuer de transfert car votre compte est bloqué.");
+                    event.preventDefault(); // Empêcher l'envoi du formulaire
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="section-apport">
+    <h2>Transférer de l'argent</h2>
+    <form action="#" method="post">
+        <label for="montant">Montant à transférer (€) :</label>
+        <input type="number" id="montant" name="montant" required>
+
+        <label for="date">Date du transfert :</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="rib">RIB :</label>
+        <input type="text" id="rib" name="rib" placeholder="Ex : FR76 1234 5678 9012 3456 7890 123" required>
+
+        <label for="bic">BIC/Swift :</label>
+        <input type="text" id="bic" name="bic" placeholder="Ex : ABCDFFGGXXX" required>
+
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" placeholder="Description du transfert (optionnel)"></textarea>
+
+        <button type="submit">Transférer</button>
+    </form>
+</div>
+
+ <a href="solde.html" class="back-button">Retour </a>
+</body>
+</html>

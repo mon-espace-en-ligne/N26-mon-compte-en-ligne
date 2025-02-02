@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte Bancaire</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style du logo */
+        .logo {
+            margin: 40px 0; 
+            width: 200px; 
+        }
+
+        /* En-tête */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Icône de notification */
+        .notification-icon {
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .notification-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .balance {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .info {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .info h4 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .info p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+
+        /* Style des montants */
+        .debit {
+            color: #d9534f; /* Rouge */
+            font-weight: bold;
+        }
+
+        .credit {
+            color: #5cb85c; /* Vert */
+            font-weight: bold;
+        }
+
+        /* Animation clignotante pour le message d'alerte */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .message {
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ffe6e6;
+            border: 1px solid red;
+            border-radius: 5px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            animation: blink 1s infinite;
+        }
+
+        /* Bouton pour afficher plus de transactions */
+        .toggle-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #00a19a;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #007f7a;
+        }
+
+        /* Style des boutons ronds */
+        .round-button {
+            width: 70px; 
+            height: 70px; 
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background-size: cover; 
+            background-position: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .round-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Boutons en bas de la page */
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .round-button-1 {
+            background-image: url('illustration_carte.jpg');
+        }
+
+        .round-button-2 {
+            background-image: url('illustration_transfert_argent.jpg');
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            font-size: 14px;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Transactions supplémentaires cachées par défaut */
+.hidden-transactions {
+    display: none;
+}
+footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            font-size: 14px;
+            color: #555;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="barre_notification.png" alt="Notifications" class="notification-icon" onclick="window.location.href='notification.html'">
+        <img src="n.png" alt="Logo" class="logo"> 
+<p><h1>Heureux de vous revoir ! </h1></p>
+        <h1>Béatrice Turin </h1>
+    </header>
+
+    <div class="message">Votre compte est bloqué.</div>
+
+    <div class="container">
+        <h2>Mon solde</h2>
+        <div class="balance">3,456,278 €</div>
+
+        <div class="info">
+            <h4>27-06-2023</h4>
+            <p><span class="debit">cash-pay -100,00 €</span></p>
+        </div>
+ <div class="info">
+            <h4>22-06-2023</h4>
+            <p><span class="credit"> Reçu          
+        +2100,00 €</span></p>
+        </div>
+ <div class="info">
+            <h4>13-06-2023</h4>
+            <p><span class="credit">Reçu +700,00 €</span></p>
+        </div>
+  <div class="info">
+            <h4>06-05-2023</h4>
+            <p><span class="debit">virement à FR124*** 100,00 €</span></p>
+        </div>
+
+        <div class="hidden-transactions" id="transactionList">
+            <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="credit">Reçu +150,00 €</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="debit">Virement -8090,00 €</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="debit">Virement -1350,00 €</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="debit">Virement -750,75 €</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="credit">Reçu +12,000,00</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="credit">de Paypal +150,00 €</span></p>
+            </div>
+ <div class="info">
+                <h4>Il y a plusieurs jours</h4>
+                <p><span class="credit">de FR0012***  +960,00 €</span></p>
+            </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleTransactions()">Voir plus ▼</button>
+    </div>
+<!-- Boutons ronds -->
+    <div class="button-container">
+        <a href="ma-carte.html" class="round-button round-button-1"></a>
+        <a href="transférer-de-l’argent .html" class="round-button round-button-2"></a>
+    </div>
+ <footer>
+        <p><a href="#">Conditions d'utilisation</a> | <a href="#">Politique de confidentialité</a> | <a href="#">Contact</a></p>
+    </footer>
+   <script>
+    function toggleTransactions() {
+        const list = document.getElementById('transactionList');
+        const button = document.querySelector('.toggle-btn');
+        
+        if (list.style.display === 'none' || list.style.display === '') {
+            list.style.display = 'block';
+            button.textContent = 'Voir moins ▲';
+        } else {
+            list.style.display = 'none';
+            button.textContent = 'Voir plus ▼';
+        }
+    }
+</script>
+
+</body>
+</html>

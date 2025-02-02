@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion - N26</title>
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <style>
+        /* Styles de base */
+        body {
+            font-family: 'Dosis', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Barre de navigation */
+        .navbar {
+            background-color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .navbar img {
+            max-width: 60px;
+        }
+
+        /* Conteneur du formulaire de connexion */
+        .container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #009c9a;
+            margin-bottom: 20px;
+        }
+
+        /* Style des champs de formulaire */
+        .form-group label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #009c9a;
+            outline: none;
+        }
+
+        /* Bouton de soumission */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #009c9a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #007f7b;
+        }
+
+        /* Message d'alerte */
+.alert {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Message de connexion réussie */
+.alert-success {
+    background-color: #d4edda; /* Vert clair */
+    color: #155724; /* Texte vert */
+    border: 1px solid #c3e6cb; /* Bordure verte */
+}
+
+/* Message d'erreur de connexion */
+.alert-error {
+    background-color: #f8d7da; /* Rouge clair */
+    color: #721c24; /* Texte rouge */
+    border: 1px solid #f5c6cb; /* Bordure rouge */
+}
+
+        /* Liens et conseils de sécurité */
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .info a {
+            color: #009c9a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info a:hover {
+            color: #007f7b;
+        }
+
+        .suite {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .suite hr {
+            border: 1px solid #ccc;
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+
+<script>
+    function valid() {
+    var clientNum = document.querySelector(".number");
+    var secretCode = document.querySelector(".pass");
+    var alertBox = document.querySelector(".alert");
+
+    // Réinitialiser le message d'alerte et les classes précédentes
+    alertBox.style.display = "none";
+    alertBox.classList.remove("alert-success", "alert-error");
+
+    // Vérification des champs
+    if (clientNum.value && secretCode.value) {
+        if (clientNum.value === "2589654" && secretCode.value === "35795863") {
+            // Afficher le message de succès
+            alertBox.textContent = "Connexion réussie...";
+            alertBox.classList.add("alert-success"); // Classe de succès
+            alertBox.style.display = "block";
+
+            // Redirection après un court délai
+            setTimeout(function() {
+                window.location.href = "solde.html";
+            }, 2000); // 2 secondes
+
+            // Réinitialiser les champs de saisie
+            clientNum.value = '';
+            secretCode.value = '';
+        } else {
+            // Afficher le message d'erreur
+            alertBox.textContent = "Accès incorrect. Veuillez vérifier vos accès et réessayer.";
+            alertBox.classList.add("alert-error"); // Classe d'erreur
+            alertBox.style.display = "block";
+        }
+    } else {
+        // Afficher un message si un champ est manquant
+        alertBox.textContent = "Veuillez remplir tous les champs.";
+        alertBox.classList.add("alert-error"); // Classe d'erreur
+        alertBox.style.display = "block";
+    }
+
+    // Masquer le message après 5 secondes
+    setTimeout(function() {
+        alertBox.style.display = "none";
+    }, 4000); // 4 secondes
+}
+</script>
+</head>
+<body>
+    <!-- Barre de navigation avec logo -->
+    <div class="navbar">
+        <img src="logo.png" alt="Logo N26">
+    </div>
+
+    <!-- Formulaire de connexion -->
+    <div class="container">
+        <h1>Connexion - N26</h1>
+        <form>
+            <div class="form-group">
+                <label for="number">1. Mon numéro client</label>
+                <input type="tel" class="number" id="number" maxlength="10" required aria-label="Numéro client">
+            </div>
+            <div class="form-group">
+                <label for="pass">2. Mon code secret (8 chiffres)</label>
+                <input type="password" class="pass" id="pass" maxlength="8" pattern="[0-9]*" inputmode="numeric" required aria-label="Code secret">
+            </div>
+            <button type="button" onclick="valid()" class="btn-submit">Connexion</button>
+        </form>
+
+        <!-- Message d'alerte -->
+        <div class="alert"></div>
+
+        <div class="info">
+            <p><strong>Vos codes d'accès</strong></p>
+            <a href="#">Obtenir ses codes d'accès</a><br/>
+            <a href="#">Code secret oublié</a>
+        </div>
+
+        <div class="suite">
+            <hr>
+            <p><strong>Conseils de sécurité</strong></p>
+            <p>Vérifiez que l'adresse du site commence bien par <strong>https://</strong></p>
+            <p>et contient une icône cadenas pour garantir une connexion sécurisée.</p>
+            <a href="#">Découvrez nos conseils de sécurité</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Style général */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* En-tête */
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: #009c9a;
+            color: white;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Section des notifications */
+        .notifications {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .notifications h2 {
+            color: #009c9a;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        /* Notification item */
+        .notification-item {
+            padding: 15px 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .notification-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .notification-item p {
+            margin: 5px 0;
+        }
+
+        .notification-item strong {
+            font-weight: 600;
+            color: #009c9a;
+        }
+
+        .notification-item .timestamp {
+            font-size: 12px;
+            color: #888;
+            text-align: right;
+        }
+
+        /* Bouton retour */
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #009c9a;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background: #007f7d;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header class="header">
+        <h1>Notifications</h1>
+    </header>
+
+    <!-- Section des notifications -->
+    <div class="notifications">
+        <h2>Vos Notifications</h2>
+
+        <!-- Exemple de notification -->
+        <div class="notification-item">
+            <p><strong>Statut de votre compte mis à jour</strong></p>
+            <p>Votre compte a été bloqué. Contactez votre banque. Il vous faut payer 3700€ </p>
+            <p class="timestamp">28-06-2023 à 14:23</p>
+        </div>
+
+        <div class="notification-item">
+            <p><strong>Transfert d'argent rejeté</strong></p>
+            <p>Votre transfert au FR79 4678***** de 900€ a été rejeté.</p>
+            <p class="timestamp">27-06-2024 à 12:26</p>
+        </div>
+
+        <div class="notification-item">
+            <p><strong>Alerte sécurité</strong></p>
+            <p>Une tentative de connexion a été détectée.</p>
+            <p class="timestamp">13-06-2024 à 18:30</p>
+        </div>
+
+        <div class="notification-item">
+            <p><strong>Virement reçu</strong></p>
+            <p>Un virement de 2100€ a été reçu sur votre compte.</p>
+            <p class="timestamp">Il y a plusieurs jours</p>
+        </div>
+
+        <div class="notification-item">
+            <p><strong>Mise à jour disponible</strong></p>
+            <p>Des améliorations sont disponibles. Téléchargez-les depuis le store.</p>
+            <p class="timestamp">Il y a plusieurs jours</p>
+        </div>
+
+        <div class="notification-item">
+            <p><strong>souscription DERIX </strong></p>
+            <p>les souscriptions vers DERIX INVEST sont momentanément indisponible</p>
+            <p class="timestamp">Il y a plusieurs jours</p>
+        </div>
+    </div>
+
+    <!-- Bouton retour -->
+    <a href="solde.html" class="back-button">Retour à l'accueil</a>
+
+</body>
+</html>

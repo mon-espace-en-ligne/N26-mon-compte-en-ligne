@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Carte Bancaire</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* En-tête */
+        .header {
+            text-align: center;
+            padding: 18px;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Détails */
+        .details-section {
+            width: 320px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .details-section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #009c9a;
+        }
+
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card-detail span {
+            font-weight: bold;
+        }
+
+        .btn-back {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #009c9a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background-color: #007f7b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header class="header">
+        <h1>Détails de la Carte</h1>
+    </header>
+
+    <!-- Section Détails -->
+    <div class="details-section">
+        <h2>Informations de la carte</h2>
+
+        <!-- Détails de la carte -->
+        <div class="card-detail">
+            <span>Titulaire de compte:</span>
+            <span>Béatrice Turin  </span>
+        </div>
+        <div class="card-detail">
+            <span>Date d'expiration :</span>
+            <span>01/27</span>
+        </div>
+        <div class="card-detail">
+            <span>Code de sécurité :</span>
+            <span>35795863</span>
+        </div>
+   <div class="card-detail">
+            <span>Numéro de carte :</span>
+            <span>54 17 97 09 58 97 391 7</span>
+        </div>
+
+        <button class="btn-back" onclick="window.history.back()">Retour</button>
+    </div>
+
+</body>
+</html>

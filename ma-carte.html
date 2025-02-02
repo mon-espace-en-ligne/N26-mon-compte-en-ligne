@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Carte Bancaire</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* En-tête */
+        .header {
+            text-align: center;
+            padding: 18px;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style du logo */
+        .logo {
+            margin: 1px 0;
+            width: 170px;
+        }
+
+        /* Section */
+        .section {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #009c9a;
+        }
+
+        /* Conteneur de la carte */
+        .carte-bancaire {
+            width: 280px;
+            height: 160px;
+            border-radius: 10px;
+            background-image: url('Card.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Boutons */
+        .btn-lock, .btn-details {
+            display: block;
+            width: 100%;
+            margin: 12px auto;
+            padding: 8px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-lock {
+            background-color: #f44336;
+            box-shadow: 0px 5px 10px rgba(244, 67, 54, 0.5);
+            width:60%;
+        }
+
+        .btn-lock.active {
+            background-color: #4CAF50;
+            box-shadow: 0px 5px 10px rgba(76, 175, 80, 0.5);
+            width:60%;
+        }
+
+        .btn-details {
+            background-color: #009c9a;
+            box-shadow: 0px 5px 10px rgba(0, 156, 154, 0.5);
+            width:67%;
+        }
+
+        .btn-details:hover {
+            background-color: #007f7b;
+        }
+
+        /* Conteneur des actions */
+        .actions {
+            margin-top: 20px;
+        }
+
+        /* Style pour chaque action avec illustration */
+        .action-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .action-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .action-content {
+            flex-grow: 1; /* Permet à la section de texte de s'étendre si besoin */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .action-content p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .action-content button {
+            padding: 8px 12px;
+            font-size: 14px;
+            color: white;
+            background-color: #009c9a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width:80%
+        }
+  /* Bouton retour */
+        .back-button {
+            margin-top: 20px;
+            padding: 9px 9px;
+            background: #009c9a;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background: #007f7d;
+            transform: scale(1.05);
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            font-size: 14px;
+            color: #555;
+            background-color: #009c9a;
+            color: white;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header class="header">
+        <img src="n.png" alt="Logo" class="logo">
+    </header>
+
+    <!-- Section Ma Carte avec verrouillage/déverrouillage -->
+    <div class="section">
+        <h2>Ma Carte</h2>
+        <div class="carte-bancaire"></div>
+        <button class="btn-lock" id="btn-lock">Verrouiller ma carte</button>
+        <a href="détail de la carte.html" class="btn-details">Voir les détails de la carte</a>
+    </div>
+
+    <!-- Conteneur pour les actions supplémentaires -->
+    <div class="section actions">
+        <h2>Actions</h2>
+
+        <div class="action-item">
+            <img src="abonnement.png" alt="Illustration abonnements">
+            <div class="action-content">
+                <button class="btn-details">Gérer mes abonnements</button>
+            </div>
+        </div>
+
+        <div class="action-item">
+            <img src="achat illustration .png" alt="Illustration commandes">
+            <div class="action-content">
+                <button class="btn-details">Accéder a mes commande</button>
+            </div>
+        </div>
+    </div>
+
+ <p><a href="solde.html" class="back-button">Retour</a></p>
+    
+       <!-- Pied de page -->
+    <footer>
+<p><a href="#">Conditions d'utilisation</a> | <a href="#">Politique de confidentialité</a> | <a href="#">Contact</a></p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        const btnLock = document.getElementById('btn-lock');
+        btnLock.addEventListener('click', function() {
+            if (btnLock.classList.contains('active')) {
+                btnLock.classList.remove('active');
+                btnLock.textContent = "Verrouiller ma carte";
+                alert("La carte a été déverrouillée !");
+            } else {
+                btnLock.classList.add('active');
+                btnLock.textContent = "Déverrouiller ma carte";
+                alert("La carte a été verrouillée !");
+            }
+        });
+    </script>
+
+</body>
+</html>
